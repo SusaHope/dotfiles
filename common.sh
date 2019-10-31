@@ -19,7 +19,7 @@ error()
       echo -e "${error}$1${reset}"
 }
 
-addLinksToFile() {
+addLinksToTopOfFile() {
   src=$1
   target=$2
   info "Adding link to $target..."
@@ -29,7 +29,9 @@ addLinksToFile() {
   fi
   if ! grep -q "$src" "/$target"
   then
-    echo "source $src" >> "/$target";
+    touch $target.temp
+    (echo "source $src" && cat "/$target") >> $target.temp;
+    mv $target.temp $target
   fi
   success "Done."
 }

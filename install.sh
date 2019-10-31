@@ -3,6 +3,8 @@
 dotfilesDir=$HOME/.dotfiles_test
 dotfilesDirTk=$dotfilesDir/dotfilesTk
 
+rm -rf $dotfilesDir
+
 if [ ! -f $dotfilesDir/common.sh  ]
 then
    source <(curl -Ls https://raw.githubusercontent.com/SusaHope/dotfiles/master/common.sh)
@@ -27,8 +29,8 @@ success "Done."
 
 #addLinkToFile "$dotfilesDirTk/zshrc.sh" "$dotfilesDir/zshrc"
 #addLinkToFile "$dotfilesDirTk/vim/vimrc" "$dotfilesDir/vim/vimrc"
-addLinksToFile "$dotfilesDirTk/tmux.conf" "$dotfilesDir/tmux.conf"
+addLinksToTopOfFile "$dotfilesDirTk/tmux.conf" "$dotfilesDir/tmux.conf"
 
 #addLinkToFile "$dotfilesDir/zshrc.sh" "$HOME/.zshrc"
 #addLinkToFile "$dotfilesDir/vim/vimrc" "$HOME/.vimrc"
-addLinksToFile "$dotfilesDir/tmux.conf" "$HOME/.tmux.conf"
+addLinksToTopOfFile "$dotfilesDir/tmux.conf" "$HOME/.tmux.conf"
