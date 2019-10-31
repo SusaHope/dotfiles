@@ -25,9 +25,10 @@ info "Cloning dotfiles of tklepzig"
 git clone --depth=1 https://github.com/tklepzig/dotfiles.git $dotfilesDirTk > /dev/null 2>&1
 success "Done."
 
-addLinkToFile "zshrc.sh" ".zshrc" $dotfilesDir
-addLinkToFile "vim/vimrc" ".vimrc" $dotfilesDir
-addLinkToFile "tmux.conf" ".tmux.conf" $dotfilesDir
-addLinkToFile "zshrc.sh" ".zshrc" $dotfilesDirTk
-addLinkToFile "vim/vimrc" ".vimrc" $dotfilesDirTk
-addLinkToFile "tmux.conf" ".tmux.conf" $dotfilesDirTk
+#addLinkToFile "$dotfilesDirTk/zshrc.sh" "$dotfilesDir/zshrc"
+#addLinkToFile "$dotfilesDirTk/vim/vimrc" "$dotfilesDir/vim/vimrc"
+addLinksToFile "$dotfilesDirTk/tmux.conf" "$dotfilesDir/tmux.conf"
+
+#addLinkToFile "$dotfilesDir/zshrc.sh" "$HOME/.zshrc"
+#addLinkToFile "$dotfilesDir/vim/vimrc" "$HOME/.vimrc"
+addLinksToFile "$dotfilesDir/tmux.conf" "$HOME/.tmux.conf"
