@@ -22,9 +22,6 @@ error()
 addLinksToFile() {
   src=$1
   target=$2
-  echo 'blub'
-  echo $src
-  echo $target
   info "Adding link to $target..."
   if [ ! -f $target  ]
   then
