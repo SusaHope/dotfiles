@@ -92,7 +92,7 @@ precmd() {
           # response=$(curl -s "https://api.github.com/search/issues?q=repo:user/repo+type:pr+state:open&access_token=$token" 2>/dev/null)
           # prCount=$(echo $response | sed -En "s/^.*\"total_count\": ([0-9]+),.*$/\1/p")
 
-          battery=$(source $dotfilesDir/battery.sh)
+          battery=$(source $dotfilesDirTk/battery.sh)
           batteryColor=""
           if [[ $battery -lt 16  ]]
           then
@@ -108,5 +108,5 @@ zstyle ':vcs_info:git:*' formats "%b"
 zstyle ':vcs_info:git:*' actionformats "%b %{$reset_color%}%{$fg_bold[blue]%}(%a)%{$reset_color%}"
 zstyle ':vcs_info:*' enable git
 
-source $dotfilesDir/yarn-completion.plugin.zsh
+source $dotfilesDirTk/yarn-completion.plugin.zsh
 fpath=(~/.zsh/completion $fpath)

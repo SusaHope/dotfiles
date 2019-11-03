@@ -26,7 +26,7 @@ git clone --depth=1 https://github.com/tklepzig/dotfiles.git $dotfilesDirTk > /d
 success "Done."
 
 #addLinksToTopOfFile "$dotfilesDirTk/zshrc.sh" "$dotfilesDir/zshrc"
-addLinksToTopOfFile "$dotfilesDirTk/vim/vimrc" "$dotfilesDir/vim/vimrc"
+#addLinksToTopOfFile "$dotfilesDirTk/vim/vimrc" "$dotfilesDir/vim/vimrc"
 addLinksToTopOfFile "$dotfilesDirTk/tmux.conf" "$dotfilesDir/tmux.conf"
 
 addLinksToTopOfFile "$dotfilesDir/zshrc.sh" "$HOME/.zshrc"
