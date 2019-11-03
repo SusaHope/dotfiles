@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 dotfilesDir="$HOME/.dotfiles"
-ditfilesDirTk="$dotfilesDir/dotfilesTk"
+dotfilesDirTk="$dotfilesDir/dotfilesTk"
 
 alias ls='ls -FG'
 alias la='ls -lh'
