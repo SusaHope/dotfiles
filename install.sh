@@ -25,8 +25,14 @@ info "Cloning dotfiles of tklepzig"
 git clone --depth=1 https://github.com/tklepzig/dotfiles.git $dotfilesDirTk > /dev/null 2>&1
 success "Done."
 
+
+for f in $HOME/.dotfiles/dotfilesTk/vim/* ; do
+   sed -i "" 's/dotfiles/dotfiles\/dotfilesTk/g' "$f" ;
+done
+
+
 #addLinksToTopOfFile "$dotfilesDirTk/zshrc.sh" "$dotfilesDir/zshrc"
-#addLinksToTopOfFile "$dotfilesDirTk/vim/vimrc" "$dotfilesDir/vim/vimrc"
+addLinksToTopOfFile "$dotfilesDirTk/vim/vimrc" "$dotfilesDir/vim/vimrc"
 addLinksToTopOfFile "$dotfilesDirTk/tmux.conf" "$dotfilesDir/tmux.conf"
 
 addLinksToTopOfFile "$dotfilesDir/zshrc.sh" "$HOME/.zshrc"
