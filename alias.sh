@@ -1,5 +1,12 @@
 #!/usr/bin/env zsh
 
+# Git
+gcof() {
+  local branch
+  branch=$(git show-ref | awk '{print $2}' | sed 's#refs/.*/##g' | awk '!seen[$0]++' | fzf)
+  [[ -n $branch ]] && git checkout $branch
+}
+
 # Navigation
 alias mkcd='function __mkcd() { mkdir "$1"; cd "$1"; unset -f __mkcd; }; __mkcd'
 alias o='open .'

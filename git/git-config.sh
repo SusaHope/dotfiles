@@ -123,6 +123,8 @@ git config --global alias.wta "worktree add"
 git config --global alias.wtp "worktree prune"
 git config --global alias.wtl "worktree list"
 
+git config --global alias.search "!f() { git log --all -pG\"\$1\" -i | less -i -p\"\$1\"; }; f"
+
 git config --global alias.cp "cherry-pick"
 git config --global alias.cpn "cherry-pick -n"
 
