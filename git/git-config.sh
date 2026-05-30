@@ -6,8 +6,8 @@ reflogCommon="-c core.pager='less -SRF' reflog --date=human --format='%C(yellow)
 stashCommon="-c core.pager='less -SRF' stash list --date=human --format='%C(yellow)%h%C(reset) %C(dim yellow)%<(10)%gd%C(reset) %C(cyan)%><(15)%ad%C(reset) %gs%C(reset)'"
 
 # general config
-git config --global credential.helper store
-git config --global push.default simple
+git config --global credential.helper osxkeychain
+git config --global push.default current
 git config --global fetch.prune true
 git config --global pull.rebase true
 #git config --global diff.tool meld
@@ -81,15 +81,15 @@ git config --global alias.bv "branch -vv"
 git config --global alias.bc "!f() { git remote prune origin; git branch -vv | grep 'origin/.*: gone]' | awk '{print \$1}' | xargs git branch -d; }; f"
 git config --global alias.bcD "!f() { git remote prune origin; git branch -vv | grep 'origin/.*: gone]' | awk '{print \$1}' | xargs git branch -D; }; f"
 # Show the commit hash of the first commit of the current or given branch --> "BranchFirstCommit"
-git config --global alias.bfc "!f() { currentBranch=\$(git rev-parse --abbrev-ref HEAD); echo \$(git log master..\${1:-\$currentBranch}  --oneline --pretty=format:'%h' | tail -1); }; f"
+git config --global alias.bfc "!f() { currentBranch=\$(git rev-parse --abbrev-ref HEAD); echo \$(git log main..\${1:-\$currentBranch}  --oneline --pretty=format:'%h' | tail -1); }; f"
 # List all changed files included in this branch compared to master at the time the branch has been created
-git config --global alias.bf "!f() { git diff --name-only  \$(git merge-base \${1:-master} HEAD); }; f"
-git config --global alias.bfp "!f() { git diff -p --word-diff  \$(git merge-base \${1:-master} HEAD); }; f"
-git config --global alias.rbib "!f() { currentBranch=\$(git rev-parse --abbrev-ref HEAD); git rebase -i \$(git log master..\${1:-\$currentBranch}  --oneline --pretty=format:'%h' | tail -1)^; }; f"
+git config --global alias.bf "!f() { git diff --name-only  \$(git merge-base \${1:-main} HEAD); }; f"
+git config --global alias.bfp "!f() { git diff -p --word-diff  \$(git merge-base \${1:-main} HEAD); }; f"
+git config --global alias.rbib "!f() { currentBranch=\$(git rev-parse --abbrev-ref HEAD); git rebase -i \$(git log main..\${1:-\$currentBranch}  --oneline --pretty=format:'%h' | tail -1)^; }; f"
 
 git config --global alias.f "fetch"
-git config --global alias.fm "!f() { . ~/.dotfiles/git/git-fetch-merge.sh; }; f"
-git config --global alias.fma "!f() { . ~/.dotfiles/git/git-fetch-merge.sh --all; }; f"
+git config --global alias.fm "!f() { . ~/Github/dotfiles/git/git-fetch-merge.sh; }; f"
+git config --global alias.fma "!f() { . ~/Github/dotfiles/git/git-fetch-merge.sh --all; }; f"
 
 git config --global alias.m "merge"
 git config --global alias.ma "merge --abort"
@@ -129,5 +129,5 @@ git config --global alias.cpn "cherry-pick -n"
 git config --global alias.rv "revert"
 git config --global alias.rvn "revert -n"
 
-git config --global alias.prn "!f() { . ~/.dotfiles/git/git-github-pr.sh new; }; f"
-git config --global alias.pro "!f() { . ~/.dotfiles/git/git-github-pr.sh; }; f"
+git config --global alias.prn "!f() { . ~/Github/dotfiles/git/git-github-pr.sh new; }; f"
+git config --global alias.pro "!f() { . ~/Github/dotfiles/git/git-github-pr.sh; }; f"

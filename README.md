@@ -1,25 +1,35 @@
 # dotfiles
 
-My dotfiles for git, zsh, tmux and vim.
+Personal dotfiles for zsh, tmux, git and vim. Lives at `~/Github/dotfiles/`.
 
-## Installation
+## What's here
 
-    curl -Ls https://raw.githubusercontent.com/tklepzig/dotfiles/master/install.sh \
-    | bash -s -- --profiles=[comma separated list of profiles, see below]
+| File/Folder | Purpose | Wired up via |
+|---|---|---|
+| `alias.sh` | Shell aliases | sourced in `~/.zshrc` |
+| `tmux.conf` | tmux config | sourced in `~/.tmux.conf` |
+| `git/` | Git aliases & helper scripts | `~/.gitconfig` (directly) |
+| `vim/` | Vim profiles (basic, dev, web, python, ruby, writing) | `~/.vimrc` + `~/.plugins.vim` |
 
-## Profiles
+## How things are connected
 
-Add these via `--profiles=`, e.g. `--profiles=web,python`
+**zsh** (`~/.zshrc`) sources `alias.sh` directly:
+```
+source /Users/susanne/Github/dotfiles/alias.sh
+```
 
-Name|Details
--|-
-dev|Development in General
-web|Web Development
-python|Python Support
-ruby|Ruby Support
-writing|Distraction free writing
-or|ZIMPL Support
+**tmux** (`~/.tmux.conf`) sources `tmux.conf` directly:
+```
+source /Users/susanne/Github/dotfiles/tmux.conf
+```
 
-## Complete system setup including dotfiles
+**git** (`~/.gitconfig`) contains the aliases inline — `git/git-config.sh` can regenerate them from scratch if needed.
 
-    curl -Ls https://raw.githubusercontent.com/tklepzig/dotfiles/master/system-setup/install.sh | bash -s
+**vim** (`~/.vimrc`) sources the basic and dev profiles. `~/.plugins.vim` manages vim-plug plugins.
+
+## Git helper scripts
+
+- `git/git-github-pr.sh` — opens a GitHub PR URL in the browser (`git prn` = new PR, `git pro` = open existing)
+- `git/git-fetch-merge.sh` — fast-forward pull helper
+- `git/git-status-all.sh` — git status across multiple repos
+- `git/git-config.sh` — regenerates `~/.gitconfig` from scratch (run if setting up a new machine)

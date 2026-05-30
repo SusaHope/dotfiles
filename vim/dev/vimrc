@@ -74,4 +74,4 @@ let NERDTreeShowHidden = 1
 " Keep NERD Tree open in new tabs
 " autocmd BufWinEnter * NERDTreeMirror
 
-source $HOME/.dotfiles/vim/dev/mappings.vim
+source $HOME/Github/dotfiles/vim/dev/mappings.vim
